@@ -1,3 +1,4 @@
+require 'dotenv/load'
 require './db'
 
 DB.create_table :clients do
