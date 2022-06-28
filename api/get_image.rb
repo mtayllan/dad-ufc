@@ -17,7 +17,7 @@ module GetImage
   def self.call(html)
     lambda_response = @aws_lambda.invoke({
       function_name: ENV['LAMBDA_ARN'],
-      payload: { html: }.to_json
+      payload: { html: html }.to_json
     })
 
     base64_image = JSON.parse(lambda_response[:payload].string)['base64']
